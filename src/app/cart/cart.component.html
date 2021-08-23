@@ -1,0 +1,94 @@
+<div class="container-fluid" *ngIf="product.length != 0">
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <hr color="black" style="height:6px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row justify-content-center">
+        <div class="col-sm-8">
+          <div class="row justify-content-center text-center"> 
+            <div class="col-sm-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Remove from cart</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of product; let i=index">
+                    <th>{{i+1}}</th>
+                    <th scope="row">{{item.ProductName}}</th>
+                    <td>{{item.ProductPrice}}</td>
+                    <td> <img src="{{item.ProductImageurl}}" width="100px" alt=""> </td>
+                    <td> <button type="button" (click)="removeItem(item)" class="remove-single-item-btn" >Remove</button> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-8">
+          <hr color="pink">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-8">
+          <div class="row justify-content-center text-center"> 
+            <div class="col-sm-4 text-left">
+              <button type="button" (click)="empty_cart()"  class="remove-all-items-btn">Remove all items</button>
+            </div>
+            <div class="col-sm-4">
+              <label for="" class="text-primary h4">Grand total : </label> <span
+              class="h4 text-success"> Rs. {{gtotal}}</span>
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-danger w-100">Buy now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="" *ngIf="product.length==0">
+  <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-sm-12">
+        <hr color="black" style="height:6px;">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="row justify-content-center text-center mb-2">
+          <h1><i class="fas fa-dolly-flatbed-empty fa-5x border border-dark
+          rounded-circle p-5"></i></h1>
+        </div>
+        <div class="row text-center justify-content-center mb-2">
+          <div class="col-sm-8">
+            <h4>Your cart is empty</h4>
+          </div>
+        </div>
+        <div class="row text-center justify-content-center">
+          <div class="col-sm-8">
+            <button type="button" class="shop-now-btn bg-primary"
+            routerLink="/phonepage" routerLinkActive="active">Shop now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

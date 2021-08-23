@@ -1,0 +1,27 @@
+.loginbtn{
+  border: 1px solid #339BF7;
+  border-radius: 25px;
+  opacity: 1;
+  height:50px;
+  width:160px;
+  color: #339BF7;
+}
+
+.login-title{
+  font: normal normal bold 30px/47px Helvetica Neue;
+}
+.login-with-title{
+  font: normal normal normal 17px/21px Fira Sans;
+}
+
+label{
+  font: normal normal normal 17px/21px Fira Sans;
+}
+
+.social-login{
+  color:#8E0E00;
+  font-size: 20px;
+}
+.social-login:hover{
+  color:#005C97;
+}

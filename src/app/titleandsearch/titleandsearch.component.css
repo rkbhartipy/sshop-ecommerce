@@ -1,0 +1,13 @@
+.search-box{
+  height: 30px;
+  border: 1px solid #B7B7B7;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.s-shop-logo{
+  text-decoration: none;
+  font: normal normal normal 47px/56px Helvetica Neue;
+  letter-spacing: 0px;
+  color: #474747;
+}

@@ -1,0 +1,16 @@
+.registerbtn{
+  border: 1px solid #339BF7;
+  border-radius: 25px;
+  height:50px;
+  width:160px;
+  opacity:1;
+  color: 339BF7;
+}
+
+.create-an-account-title{
+  font: normal normal bold 20px/37px Helvetica Neue;
+}
+
+label{
+  font: normal normal normal 17px/21px Fira Sans;
+}

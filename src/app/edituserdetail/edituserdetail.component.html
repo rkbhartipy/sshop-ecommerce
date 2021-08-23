@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <hr color="black" style="height:6px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row justify-content-center">
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-10">
+              <h3>Update</h3>
+              <form class="mt-4" #updateForm="ngForm" (ngSubmit)="updateNewDetails(updateForm.value)">
+                <div class="form-group">
+                  <label for="Fullname">Fullname</label>
+                  <input type="text" placeholder="Enter fullname" [disabled]="url_add" class="form-control"
+                  minlength="3" required name="fullname" #ufname="ngModel" [(ngModel)]="fetchedFullname" ngModel>
+                  <div *ngIf="ufname.invalid && (ufname.touched || updateForm.submitted)">
+                    <div class="text-danger" *ngIf="ufname.errors?.required">This field is required</div>
+                    <div class="text-danger"
+                    *ngIf="ufname.errors?.minlength">Enter atleat 3 characters</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="usernameoremail">Username(email)</label>
+                  <input type="email" name="usernameoremail" placeholder="Enter email"
+                  class="form-control" required disabled #uemail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="fetchedUserIdEmail" ngModel>
+                  <div *ngIf="uemail.invalid && (uemail.touched || updateForm.submitted)">
+                    <div class="text-danger" *ngIf="uemail.errors?.required">This field is required</div>
+                    <div class="text-danger" *ngIf="uemail.errors?.pattern">Enter valid email address</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="userphone">Phone</label>
+                  <input type="number" name="userphone" [disabled]="url_add" placeholder="Enter phone number"
+                  class="form-control" required minlength="10" maxlength="10" #uphone="ngModel" [(ngModel)]="fetchedPhone" ngModel>
+                  <div *ngIf="uphone.invalid && (uphone.touched || updateForm.submitted)">
+                    <div class="text-danger"
+                    *ngIf="uphone.errors?.required">This field is required</div>
+                    <div class="text-danger"
+                    *ngIf="(uphone.errors?.minlength) || (uphone.errors?.maxlength)">Enter valid phone number</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="usernstate">State</label>
+                  <input type="text" name="usernstate" [disabled]="url_add" placeholder="Enter state"
+                  class="form-control" required #ustate="ngModel" [(ngModel)]="fetchedState" ngModel>
+                  <div *ngIf="ustate.invalid && (ustate.touched || updateForm.submitted)">
+                    <div class="text-danger"
+                    *ngIf="ustate.errors?.required">This field is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="usercountry">Country</label>
+                  <input type="text" name="usercountry" [disabled]="url_add" placeholder="Enter country"
+                  class="form-control" required #ucountry="ngModel" [(ngModel)]="fetchedCountry" ngModel>
+                  <div *ngIf="ucountry.invalid && (ucountry.touched || updateForm.submitted)">
+                    <div class="text-danger"
+                    *ngIf="ucountry.errors?.required">This field is required</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="useraddress">Current delivery address</label>
+                  <input type="text" name="useraddress" [disabled]="url_edit"
+                  placeholder="Enter delivery address"
+                  class="form-control" required #uaddress="ngModel" [(ngModel)]="fetchedAddress" ngModel>
+                  <div *ngIf="uaddress.invalid && (uaddress.touched || updateForm.submitted)">
+                    <div class="text-danger"
+                    *ngIf="ucountry.errors?.required">This field is required</div>
+                  </div>
+                </div>
+
+                
+
+                <input type="submit" value="Update" class="updatebtn-cls" [disabled]="!updateForm.valid">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

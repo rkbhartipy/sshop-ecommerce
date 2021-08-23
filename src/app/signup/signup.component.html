@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <hr color="black" style="height:6px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row justify-content-center">
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-10">
+              <h3 class="create-an-account-title">Create An Account</h3>
+              <form class="mt-4" #myform="ngForm" (ngSubmit)="createRecord()">
+                <div class="form-group">
+                  <label for="username">Full Name</label>
+                  <input type="text" placeholder="Enter Full Name" class="form-control" minlength="4" required #fname="ngModel" name="fullname" [(ngModel)]="fullname"
+                  ngModel>
+                  <div *ngIf="fname.invalid && (fname.touched || myform.submitted )">
+                    <div class="text-danger" *ngIf="fname.errors">This field is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" placeholder="Enter Email" class="form-control" required #uemail="ngModel" name="email" [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
+                  <div *ngIf="uemail.invalid && (uemail.touched || myform.submitted )">
+                    <div class="text-danger" *ngIf="uemail.errors?.required">This field is required</div>
+                    <div class="text-danger"
+                    *ngIf="uemail.errors?.pattern">Enter valid email address</div>
+                  </div>
+                </div>
+        
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" placeholder="Enter password" class="form-control" minlength="8" required #pword1="ngModel" name="password" [(ngModel)]="password"
+                  ngModel>
+                  <div *ngIf="pword1.invalid && (pword1.touched || myform.submitted )">
+                    <div class="text-danger" *ngIf="pword1.errors">Weak password or minimum length should be
+                    of 8</div>
+                  </div>
+                </div>
+        
+                <div class="form-group">
+                  <label for="confirmpassword">Confirm password</label>
+                  <input type="password" placeholder="Enter password" class="form-control" minlength="8" required #pword2="ngModel" name="confirmpassword" [(ngModel)]="confirmpassword"
+                  ngModel>
+                  <div *ngIf="pword2.invalid && (pword2.touched || myform.submitted )">
+                    <div class="text-danger" *ngIf="pword2.errors">Weak password or minimum length should be
+                    of 8</div>
+                  </div>
+                </div>
+                <div class="text-danger">{{mismatchpassworderror}}</div>
+                <br>
+                <input type="submit" value="Register" [disabled]="!myform.valid"
+                class="registerbtn">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
