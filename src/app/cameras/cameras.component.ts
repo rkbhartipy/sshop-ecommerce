@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AlldataService } from '../database/alldata.service';
-import { CartService } from '../data/cart.service';
 import { AuthService } from '../database/auth.service';
 import { Router } from '@angular/router';
 
@@ -22,7 +21,6 @@ export class CamerasComponent {
 
   constructor(
     private alldataService: AlldataService,
-    private cartService: CartService,
     private authService: AuthService,
     private router: Router,) 
   {
