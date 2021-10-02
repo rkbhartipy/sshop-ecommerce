@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./titleandsearch.component.css']
 })
 export class TitleandsearchComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit(): void {
   }
-
 }

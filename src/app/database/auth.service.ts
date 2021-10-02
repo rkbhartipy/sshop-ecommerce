@@ -20,16 +20,12 @@ export class AuthService {
    }
 
   login(username_email: string, loginpassword:string, id:any, fullname:any,):Observable<any>{
-    
-    console.log("---------------------------------------before:", this.isUserLoggedIn)
-    this.isUserLoggedIn = username_email == username_email && loginpassword == loginpassword;
-    console.log("---------------------------------------after:", this.isUserLoggedIn)
-
+    this.isUserLoggedIn=true
     localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn? "true":"false");
+    localStorage.setItem('isGLoggedIn', "false");
+    localStorage.setItem('isFBLoggedIn', "true");
     localStorage.setItem('userid', this.isUserLoggedIn? id :"false");
     localStorage.setItem('userfullname', this.isUserLoggedIn? fullname :"false");
-
-    
   return of(this.isUserLoggedIn).pipe(delay(1000),
     tap(val=>{})
   );}
@@ -39,10 +35,11 @@ export class AuthService {
     localStorage.removeItem('isUserLoggedIn');
     localStorage.removeItem('userfullname');
     localStorage.removeItem('userid');
-
     localStorage.removeItem("sUserEmail")
     localStorage.removeItem("sUserName")
     localStorage.removeItem("sUserPhotoUrl")
+    localStorage.removeItem('isGLoggedIn')
+    localStorage.removeItem('isFBLoggedIn')
     window.location.reload()
   }
 }

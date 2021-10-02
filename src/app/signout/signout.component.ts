@@ -14,7 +14,13 @@ export class SignoutComponent implements OnInit {
   
   ngOnInit(){
     this.authService.logout();
-    this.router.navigate(['/'])
-    window.location.reload()
+    this.reloadThePage()
+  }
+
+  reloadThePage(){
+    let currentUrl=this.router.url
+    this.router.navigateByUrl("/", {skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/'])
+    })
   }
 }

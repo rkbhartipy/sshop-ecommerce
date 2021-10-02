@@ -6,13 +6,13 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-phones',
-  templateUrl: './phones.component.html',
-  styleUrls: ['./phones.component.css']
+  templateUrl: './computers.component.html',
+  styleUrls: ['./computers.component.css']
 })
-export class PhonesComponent {
+export class ComputersComponent {
 
   loader=false;
-  allfetchedmobiles:any;
+  allfetchedcomputers:any=[];
 
 
   subCartData:any=[]
@@ -26,20 +26,20 @@ export class PhonesComponent {
     private authService: AuthService,
     private router: Router,) 
   {
-    this.fetchPhoneData()
+    this.fetctComputerData()
     this.getAllCartProducts()
   }
 
   // just showing the mobile products it does not relate to cart
-  fetchPhoneData(){
+  fetctComputerData(){
     this.loader=true
-    this.alldataService.getMobiles().subscribe((data:any)=>{
-      this.allfetchedmobiles = data.map((e:any)=>{
+    this.alldataService.getComputers().subscribe((data:any)=>{
+      this.allfetchedcomputers = data.map((e:any)=>{
         return {
           ProductId:e.payload.doc.id,
-          ProductName:e.payload.doc.data()['mname'],
-          ProductImageurl:e.payload.doc.data()['mimageurl'],
-          ProductPrice:e.payload.doc.data()['mprice'],
+          ProductName:e.payload.doc.data()['caname'],
+          ProductImageurl:e.payload.doc.data()['caimage'],
+          ProductPrice:e.payload.doc.data()['caprice'],
         }
       })
       this.loader=false
@@ -47,12 +47,8 @@ export class PhonesComponent {
   }
 
 
-
-
-
   getAllCartProducts(){
     let allCartData:any=[]
-
     this.alldataService.getAllCartItems().subscribe((data:any)=>{
       allCartData=data.map((e:any)=>{
         return {

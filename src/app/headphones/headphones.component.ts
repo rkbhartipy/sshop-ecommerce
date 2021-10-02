@@ -6,13 +6,13 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-phones',
-  templateUrl: './phones.component.html',
-  styleUrls: ['./phones.component.css']
+  templateUrl: './headphones.component.html',
+  styleUrls: ['./headphones.component.css']
 })
-export class PhonesComponent {
+export class HeadphonesComponent {
 
   loader=false;
-  allfetchedmobiles:any;
+  allfetchedheadphones:any=[];
 
 
   subCartData:any=[]
@@ -26,33 +26,29 @@ export class PhonesComponent {
     private authService: AuthService,
     private router: Router,) 
   {
-    this.fetchPhoneData()
+    this.fetctHeadphonesData()
     this.getAllCartProducts()
   }
 
   // just showing the mobile products it does not relate to cart
-  fetchPhoneData(){
+  fetctHeadphonesData(){
     this.loader=true
-    this.alldataService.getMobiles().subscribe((data:any)=>{
-      this.allfetchedmobiles = data.map((e:any)=>{
+    this.alldataService.getHeadphones().subscribe((data:any)=>{
+      this.allfetchedheadphones = data.map((e:any)=>{
         return {
           ProductId:e.payload.doc.id,
-          ProductName:e.payload.doc.data()['mname'],
-          ProductImageurl:e.payload.doc.data()['mimageurl'],
-          ProductPrice:e.payload.doc.data()['mprice'],
+          ProductName:e.payload.doc.data()['caname'],
+          ProductImageurl:e.payload.doc.data()['caimage'],
+          ProductPrice:e.payload.doc.data()['caprice'],
         }
       })
       this.loader=false
     })
+    console.log("from camera :", this.allfetchedheadphones)
   }
-
-
-
-
 
   getAllCartProducts(){
     let allCartData:any=[]
-
     this.alldataService.getAllCartItems().subscribe((data:any)=>{
       allCartData=data.map((e:any)=>{
         return {

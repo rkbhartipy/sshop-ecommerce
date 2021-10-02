@@ -29,9 +29,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.socialAuthService.authState.subscribe((data:any)=>{
-      console.log("from ng function")
       if(data){
-        console.log("from ng function if condition true")
         this.googleAuthService.user=data
         this.googleAuthService.loginGoogle()
       }
@@ -39,10 +37,10 @@ export class LoginComponent implements OnInit {
   }
 
   googleLogin(){
-    console.log("from login page")
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
   }
 
+  
   // guard authentication
   //login step 1
   onClickSubmit(){
@@ -86,11 +84,6 @@ export class LoginComponent implements OnInit {
       let fullname=arr[i].Fullname
       let loginemailid=arr[i].Email
       let loginpassword=arr[i].Password
-
-      let phone=arr[i].Phone
-      let state=arr[i].State
-      let country=arr[i].Country
-      let address=arr[i].Address
 
       if((this.username==loginemailid) && (this.password==loginpassword) && ((this.username!="") || (this.password!="")) ){
         this.authService.login(loginemailid, loginpassword, id, fullname).subscribe((data:any)=>{

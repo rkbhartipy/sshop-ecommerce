@@ -41,6 +41,10 @@ import { EdituserdetailComponent } from './edituserdetail/edituserdetail.compone
 // google authentication service
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
+import { HeadphonesComponent } from './headphones/headphones.component';
+import { ComputersComponent } from './computers/computers.component';
+import { LaptopsComponent } from './laptops/laptops.component';
+import { CamerasComponent } from './cameras/cameras.component';
 
 
 @NgModule({
@@ -60,6 +64,10 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     CartComponent,
     SignoutComponent,
     EdituserdetailComponent,
+    HeadphonesComponent,
+    ComputersComponent,
+    LaptopsComponent,
+    CamerasComponent,
   ],
   imports: [
     BrowserModule,

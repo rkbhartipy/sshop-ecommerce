@@ -8,7 +8,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="row">
-              <div class="col-sm-12 greeting-text">{{greeting}}!  {{currentUsername | titlecase }}</div>
+              <div class="col-sm-12 greeting-text">{{greeting}}  {{currentUsername | titlecase }}</div>
             </div>
             <div class="collapse justify-content-end navbar-collapse" id="navbarNav">
               <div *ngIf="isUserLoggedIn; else isLogOut" >
@@ -26,12 +26,12 @@
                   <li class="nav-item-cls active">
                     <a routerLink="cartpage" routerLinkActive="active" class="nav-link">
                       <i class="fas fa-shopping-cart"></i>
-                      <sup class="h6 border border-info rounded-circle"> {{totalitem}} </sup>
+                      <sup class="h6 border border-info rounded-circle"> {{totalItem}} </sup>
                       <span class="ml-3">|</span>
                     </a>
                   </li>
                   <li class="nav-item-cls active">
-                    <a class="nav-link" routerLink="signoutpage" routerLinkActive="active">Signout</a>
+                    <a class="nav-link" routerLink="signoutpage" routerLinkActive="active">Signout</a>                  
                   </li>
                 </ul>
               </div>

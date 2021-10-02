@@ -7,23 +7,33 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
 
   public cartItemList : any = [];
+  public val:any;
   public productList =new BehaviorSubject<any>([]);
 
-  constructor() { }
+  constructor() { 
 
-  getProducts(){
-    return this.productList.asObservable();
   }
 
-  setProduct(product:any){
-    this.cartItemList.push(...product);
-    this.productList.next(product);
+  addlen(len:any){
+    this.val=len
+    console.log("val :", this.val)
+  }
+
+
+
+
+
+
+
+
+  
+  getProducts(){
+    return this.productList.asObservable();
   }
 
   addtoCart(product:any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList)
-    console.log("from cart service :",this.cartItemList);
   }
 
   removeCartItem(product:any){
@@ -37,7 +47,6 @@ export class CartService {
 
   removeAll(){
     this.cartItemList=[]
-    this.productList.next(this.cartItemList);
     this.productList.next(this.cartItemList);
   }
 }

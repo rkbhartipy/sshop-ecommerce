@@ -31,11 +31,12 @@ export class MyaccountComponent{
 
   constructor(
     private alldataService: AlldataService, 
-    private googleAuthService: GoogleauthService,
-    private authService: AuthService){
+    ){
 
-    if(this.googleAuthService.isLoogedIn==false && this.authService.isUserLoggedIn==true){
-      console.log("firebase authentication is applied")
+    let isGLoggedIn = localStorage.getItem('isGLoggedIn');
+    let isUserLoggedIn = localStorage.getItem('isFBLoggedIn');
+
+    if(isUserLoggedIn=="true" && isGLoggedIn=="false"){
       this.cuserid = localStorage.getItem("userid");
       this.alldataService.getUserData().subscribe((data:any)=>{
         this.alluserData = data.map((e:any)=>{
@@ -68,19 +69,16 @@ export class MyaccountComponent{
     else{
       this.getUserGData()
     }
-
   }
 
   ngOnInit(){
     if(this.cuseraddress=="" || this.cuseraddress=="undefined"){
       this.editaddress=false;
-      console.log('this is from ngonit in myacc')
     }
     
   }
 
   getUserGData(){
-    console.log("from myacocunt page and google authentication")
     this.sname=localStorage.getItem('sUserName')
     this.semail=localStorage.getItem('sUserEmail')
     this.sphotoUrl=localStorage.getItem('sUserPhotoUrl')

@@ -21,7 +21,6 @@ export class SignupComponent implements OnInit {
   }
 
   createRecord(){
-    console.log("this is create record method in .ts file")
     let record:any={};
     record["fullname"]=this.fullname;
     record["email"]=this.email;

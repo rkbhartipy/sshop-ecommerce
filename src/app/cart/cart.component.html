@@ -1,4 +1,5 @@
-<div class="container-fluid" *ngIf="product.length != 0">
+<!--<div class="container-fluid" *ngIf="singleUSerCartProducts.length != 0">-->
+<div class="container-fluid" *ngIf="singleUSerCartProducts.length!=0 && !removeItemLoader">
   <div class="row mt-3">
     <div class="col-sm-12">
       <hr color="black" style="height:6px;">
@@ -21,12 +22,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of product; let i=index">
-                    <th>{{i+1}}</th>
-                    <th scope="row">{{item.ProductName}}</th>
-                    <td>{{item.ProductPrice}}</td>
-                    <td> <img src="{{item.ProductImageurl}}" width="100px" alt=""> </td>
-                    <td> <button type="button" (click)="removeItem(item)" class="remove-single-item-btn" >Remove</button> </td>
+                  <tr *ngFor="let data of singleUSerCartProducts; let i=index">
+                      <th *ngIf="data">{{data.s_no}}</th>
+                      <th *ngIf="data" scope="row">{{data.sub_pname}}</th>
+                      <td *ngIf="data">{{data.sub_pprice}}</td>
+                      <td *ngIf="data"> <img src="{{data.sub_pimage}}" height="200" alt=""> </td>
+                      <td *ngIf="data"> 
+                        <button type="button" (click)="removeItem(data.sub_p_id)" class="remove-single-item-btn" >Remove</button> 
+                      </td>
                   </tr>
                 </tbody>
               </table>
@@ -43,14 +46,14 @@
         <div class="col-sm-8">
           <div class="row justify-content-center text-center"> 
             <div class="col-sm-4 text-left">
-              <button type="button" (click)="empty_cart()"  class="remove-all-items-btn">Remove all items</button>
+              <button type="button" (click)="removeAllItems()"  class="remove-all-items-btn">Remove all items</button>
             </div>
             <div class="col-sm-4">
-              <label for="" class="text-primary h4">Grand total : </label> <span
-              class="h4 text-success"> Rs. {{gtotal}}</span>
+              <label for="" class="text-primary h4">Grand total : </label> 
+              <span class="h4 text-success"> Rs. {{gtotal}}</span>
             </div>
             <div class="col-sm-4">
-              <button type="button" class="btn btn-danger w-100">Buy now</button>
+              <button type="button" class="btn btn-danger w-100">Checkout</button>
             </div>
           </div>
         </div>
@@ -59,7 +62,7 @@
   </div>
 </div>
 
-<div class="" *ngIf="product.length==0">
+<div class="" *ngIf="shopNowMsg">
   <div class="container-fluid">
     <div class="row mt-3">
       <div class="col-sm-12">
@@ -87,6 +90,17 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="containr-fluid" *ngIf="removeItemLoader"> 
+  <div class="row text-center justify-content-center mt-5">
+    <div class="col-sm-3 mt-5">
+      <h1 class="loader" style="margin-top:50%;"></h1>
+    </div>
+  </div>
+</div>
+
 
 
 

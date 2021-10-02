@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class GoogleauthService {
 
   user:any;
-  isLoogedIn=false;
+  isLoggedIn=false;
 
   constructor(){}
 
@@ -15,7 +15,9 @@ export class GoogleauthService {
     localStorage.setItem("sUserEmail", this.user.email)
     localStorage.setItem("sUserPhotoUrl", this.user.photoUrl)
     localStorage.setItem("isUserLoggedIn", "true")
-    this.isLoogedIn=true
+    this.isLoggedIn=true
+    localStorage.setItem('isGLoggedIn', "true");
+    localStorage.setItem('isFBLoggedIn', "false");
     window.location.reload()
   }
 }

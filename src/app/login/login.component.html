@@ -14,8 +14,10 @@
               <form class="mt-4" #myform="ngForm" (ngSubmit)="onClickSubmit()">
                 <div class="form-group">
                   <label for="usernmae">Username(email)</label>
+
                   <input type="email" placeholder="Username" class="form-control"
                   minlength="5" required name="username" #uname="ngModel" [(ngModel)]="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  ngModel>
+                  
                   <div *ngIf="uname.invalid && (uname.touched || myform.submitted)">
                     <div class="text-danger" *ngIf="uname.errors?.required">This field is required</div>
                     <div class="text-danger" *ngIf="uname.errors?.pattern">Enter valid email address</div>
@@ -23,7 +25,9 @@
                 </div>
                 <div class="form-group">
                   <label for="usernmae">Password</label>
+
                   <input type="password" placeholder="Password" class="form-control" minlength="8" required name="password" #upass="ngModel" [(ngModel)]="password"  ngModel>
+                  
                   <div *ngIf="upass.invalid && (upass.touched || myform.submitted)">
                     <div class="text-danger"  *ngIf="upass.errors?.minlength">Minimum length should be of 8</div>
                     <div class="text-danger" *ngIf="upass.errors?.required">This field is required</div>
@@ -55,10 +59,9 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center text-center">
-    <div class="col-sm-6">
-      <div *ngIf="loginloader" >please wait....</div>
+  <div class="row" *ngIf="loginloader">
+    <div class="col-sm-12 text-center">
+      <div class="loader"></div>
     </div>
   </div>
 </div>
-
