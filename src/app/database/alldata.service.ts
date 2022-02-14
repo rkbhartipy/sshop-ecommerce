@@ -83,8 +83,11 @@ export class AlldataService {
 
   deleteAllItems(productId:any): any{
     return this.firestore.doc("cart/" + productId).delete()
-  }
+  }  
 
-  
+  // add to myorders
+  addtomyorders(item:any){
+    return this.firestore.collection("myorders").add(item);
+  }
 
 }

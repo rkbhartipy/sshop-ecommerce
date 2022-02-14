@@ -90,7 +90,7 @@ export class CamerasComponent {
       }
     }
     else{
-      alert("Please login firest")
+      alert("Please login first")
     }
   }
 

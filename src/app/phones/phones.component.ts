@@ -93,7 +93,7 @@ export class PhonesComponent {
       }
     }
     else{
-      alert("Please login firest")
+      alert("Please login first")
     }
   }
 

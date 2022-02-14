@@ -11,6 +11,7 @@ export class GoogleauthService {
   constructor(){}
 
   loginGoogle(){
+    console.log('service function is called')
     localStorage.setItem("sUserName", this.user.name)
     localStorage.setItem("sUserEmail", this.user.email)
     localStorage.setItem("sUserPhotoUrl", this.user.photoUrl)

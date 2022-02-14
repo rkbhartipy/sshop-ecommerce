@@ -14,6 +14,8 @@ import { MywishlistComponent } from './mywishlist/mywishlist.component';
 import { SshopGuard } from './sshop.guard';
 import { CartComponent } from './cart/cart.component';
 import { EdituserdetailComponent } from './edituserdetail/edituserdetail.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderplacedComponent } from './orderplaced/orderplaced.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"homepage", pathMatch:"full"},
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path:"signoutpage", component: SignoutComponent},
   {path:"updateinfopage/:id/:editoraddress", component: EdituserdetailComponent},
   {path:"cartpage", component: CartComponent, canActivate:[SshopGuard]},
+  {path:"checkout", component: CheckoutComponent},
+  {path:"orderplaced", component: OrderplacedComponent},
   {path:"**", redirectTo:"homepage", pathMatch:"full"}
 ];
 

@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../database/auth.service';
 import { Router } from '@angular/router';
 import { AlldataService } from '../database/alldata.service';
-import { GoogleLoginProvider } from 'angularx-social-login';
-import { SocialAuthService } from 'angularx-social-login';
 import { GoogleauthService } from '../database/googleauth.service';
+// social auth modules
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -21,23 +22,28 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService, 
     private router: Router, 
-    public alldataService: AlldataService,
     public socialAuthService: SocialAuthService,
-    public googleAuthService: GoogleauthService,
+    // local injector
+    public gAService: GoogleauthService,
+    public alldataService: AlldataService,
     ) { }
 
 
   ngOnInit(): void {
-    this.socialAuthService.authState.subscribe((data:any)=>{
-      if(data){
-        this.googleAuthService.user=data
-        this.googleAuthService.loginGoogle()
-      }
-    })
   }
 
   googleLogin(){
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    this.socialAuthService.authState.subscribe((data:any)=>{
+      if(data){
+        this.gAService.user=data
+        this.gAService.loginGoogle()
+      }
+    })
+  }
+
+  facebookLogin(){
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID)
   }
 
   

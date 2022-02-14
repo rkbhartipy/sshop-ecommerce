@@ -16,15 +16,23 @@ import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoryComponent } from './category/category.component';
 import { PhonesComponent } from './phones/phones.component';
+import { HeadphonesComponent } from './headphones/headphones.component';
+import { ComputersComponent } from './computers/computers.component';
+import { LaptopsComponent } from './laptops/laptops.component';
+import { CamerasComponent } from './cameras/cameras.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { MywishlistComponent } from './mywishlist/mywishlist.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderplacedComponent } from './orderplaced/orderplaced.component';
 
 // firebase modules
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+
+// local modules
 import { environment } from "../environments/environment";
 import { CartComponent } from './cart/cart.component';
 
@@ -40,11 +48,7 @@ import { EdituserdetailComponent } from './edituserdetail/edituserdetail.compone
 
 // google authentication service
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
-import { HeadphonesComponent } from './headphones/headphones.component';
-import { ComputersComponent } from './computers/computers.component';
-import { LaptopsComponent } from './laptops/laptops.component';
-import { CamerasComponent } from './cameras/cameras.component';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 
 
 @NgModule({
@@ -68,6 +72,8 @@ import { CamerasComponent } from './cameras/cameras.component';
     ComputersComponent,
     LaptopsComponent,
     CamerasComponent,
+    CheckoutComponent,
+    OrderplacedComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +102,12 @@ import { CamerasComponent } from './cameras/cameras.component';
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               "276459868957-h4ol1fcqp71q8pcu82htbrobm7huk13o.apps.googleusercontent.com"
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(
+              "397931238614417"
             )
           },
         ],

@@ -89,7 +89,7 @@ export class HeadphonesComponent {
       }
     }
     else{
-      alert("Please login firest")
+      alert("Please login first")
     }
   }
 

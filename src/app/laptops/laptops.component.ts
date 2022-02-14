@@ -89,7 +89,7 @@ export class LaptopsComponent {
       }
     }
     else{
-      alert("Please login firest")
+      alert("Please login first")
     }
   }
 
